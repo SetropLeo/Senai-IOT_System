@@ -51,7 +51,7 @@ void loop() {
   sendData();
 
   // Verify Request response and in case of success return a positive message
-  verifyResponse();
+  verifyApiResponse();
 
   // Delay to turn the lights off
   delay(1000);
@@ -97,7 +97,7 @@ void sendData() {
   httpCode = http.GET();
 }
 
-void verifyResponse() {
+void verifyApiResponse() {
   if (httpCode == 200) {
   Serial.println("Data sent correctly");
   }
