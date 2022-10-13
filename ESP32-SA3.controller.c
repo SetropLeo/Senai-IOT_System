@@ -27,6 +27,7 @@ int port = 1883;
 int httpCode = 0;
 String path = "";
 String jsonString = "";
+
 JSONVar contextData;
 
 
@@ -59,8 +60,7 @@ void loop() {
   delay(1000);
 
   // Turn on the lights - Relay On
-  digitalWrite(outputOne, HIGH);
-  digitalWrite(outputTwo, HIGH);
+  turnLightsOn();
 
   // Send data to the Cloud
   sendDataViaHttp();
@@ -70,8 +70,7 @@ void loop() {
   delay(1000);
 
   // Turn off the lights - Relay Off
-  digitalWrite(outputOne, LOW);
-  digitalWrite(outputTwo, LOW);
+  turnLightsOff();
 }
 
 void initWifiConnection() {
@@ -154,4 +153,14 @@ void sendDataViaMqtt() {
     mqttClient.subscribe(topic);
   }
   delay(2000);
+}
+
+void turnLightsOn() {
+    digitalWrite(outputOne, HIGH);
+  digitalWrite(outputTwo, HIGH);
+}
+
+void turnLightsOff() {
+    digitalWrite(outputOne, LOW);
+  digitalWrite(outputTwo, LOW);
 }
