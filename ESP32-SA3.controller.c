@@ -27,7 +27,6 @@ int port = 1883;
 int httpCode = 0;
 String path = "";
 String jsonString = "";
-
 JSONVar contextData;
 
 
